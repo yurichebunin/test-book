@@ -1,24 +1,15 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import path from 'path'
 
 export default defineConfig({
   plugins: [vue()],
   build: {
     lib: {
-      // Точка входа для сборки в библиотеку
-      entry: './src/libEntry.ts',
-      // Глобальное имя (если формат UMD/IIFE)
+      entry: path.resolve(__dirname, 'src/libEntry.ts'),
       name: 'BookingWidget',
-      // Имя выходного файла
       fileName: (format) => `booking-widget.${format}.js`,
-    },
-    rollupOptions: {
-      // Если хотим, чтобы Vue включалась внутрь бандла, оставляем external пустым
-      external: [],
-      output: {
-        // Глобальные переменные, если что-то укажем в external
-        globals: {}
-      }
+      formats: ['iife']
     }
   }
 })

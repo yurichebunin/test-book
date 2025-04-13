@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Тест виджета</title>
+
+  <link rel="stylesheet" href="./dist/booking-widget.css" />
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+</head>
+<body>
+  <div id="booking"></div>
+
+  <script src="./dist/booking-widget.iife.js"></script>
+  <script>
+    BookingWidget.initBookingWidget({ mountId: 'booking' })
+  </script>
+</body>
+</html>
